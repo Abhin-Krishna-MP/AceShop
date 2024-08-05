@@ -1,0 +1,110 @@
+.trending-banner-container{
+    width: 700px;
+    max-width: 100vw;
+    height: 700px;
+    margin: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.trending-banner{
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: max-content;
+}
+.banner{
+    position: relative;
+}
+.trending-banner img{
+    position: relative;
+    top: 5rem;
+    width: 60rem;
+    padding: 10px;
+    max-width: 100vw;
+    height: 600px;
+    animation: fadeIn 2s;
+}
+
+.trending-banner .buttons{
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.buttons button{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff5;
+    color: #fff;
+    border: none;
+    font-family: monospace;
+    font-weight: bold;
+}
+
+.dots{
+    position: absolute;
+    bottom: 10px;
+    color: #fff;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.dots li{
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    margin: 20px;
+    border-radius: 20px;
+    border: 1px solid tomato;
+}
+
+.dots li.active{
+    width: 30px;
+}
+
+@media(max-width: 900px){
+    .trending-banner-container{
+    width: 100px;
+    max-width: 100vw;
+    .dots{
+        visibility: hidden;
+    }
+    .dots li{
+        list-style: none;
+    }
+    
+}
+    .trending-banner img{
+        width: 40rem;
+    }
+}
+@media(max-width:720px){
+    .trending-banner-container{
+    width: 90px;
+    max-width: 100vw;
+    
+}
+.trending-banner img{
+    width: 40rem;
+    height: 20rem;
+    padding: 10px;
+
+    }
+    .dots{
+        visibility: hidden;
+    }
+    .dots li{
+        list-style: none;
+    }
+}

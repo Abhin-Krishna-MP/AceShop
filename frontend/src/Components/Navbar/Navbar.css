@@ -1,0 +1,9 @@
+.navbar-logo{
+    color: #fff;
+    font-size: 30px;
+}
+
+.navbar-text:hover{
+    color: #00ADB5 !important;
+    transition: 1s ease;
+}
