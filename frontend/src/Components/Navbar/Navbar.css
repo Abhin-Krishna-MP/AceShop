@@ -1,3 +1,8 @@
+.navbar-container{
+    height:60px;
+}
+
+
 .navbar-logo{
     color: #fff;
     font-size: 30px;
@@ -6,4 +11,18 @@
 .navbar-text:hover{
     color: #00ADB5 !important;
     transition: 1s ease;
+}
+
+.nav-item:hover{
+    cursor: pointer;
+}
+
+.cart-icon{
+    animation: fadeIn 1s ease;
+}
+
+.cart-icon:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: .4s ease;
 }

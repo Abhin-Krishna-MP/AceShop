@@ -1,0 +1,130 @@
+.category{
+    margin-top: 50px;
+    background: rgba( 34, 40, 49, 0.4 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 12.5px );
+    -webkit-backdrop-filter: blur( 12.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 10px;
+}
+
+.category-menu{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    overflow-x: scroll;
+    gap: 20px;
+    height: 100%;
+}
+
+.category-menu::-webkit-scrollbar{
+    display: none;
+    scroll-behavior: smooth;
+}
+
+.category-item{
+    animation: fadeOut 2s forwards;
+    animation-timeline: scroll();
+    margin: 10px;
+}
+
+.category-item img{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.category-item .active{
+    border: 5px solid #00ADB5;
+    padding: 8px;
+    transition: .5s ease;
+}
+
+.catrgory-product-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 30px;
+    overflow-x: scroll
+}
+
+.catrgory-product-container::-webkit-scrollbar{
+    display: none;
+}
+
+.category-product-item{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.23);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.1px);
+    -webkit-backdrop-filter: blur(7.1px);
+    border: 1px solid rgba(255, 255, 255, 0.32);
+}
+
+.category-product-item img{
+    margin: 10px;
+    height: 400px;
+}
+
+.category-product-content p{
+    display: none;
+}
+
+.category-product-content .active{
+    display: flex;
+    overflow-wrap: normal;
+    padding: 10px;
+}
+
+.category-product-content{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.category-product-content a{
+    color: cyan;
+    cursor: pointer;
+}
+
+.category-product-content h5{
+    color: cyan;
+    font-weight: 500;
+}
+
+.category-product-content h4{
+    font-weight: 600;
+    font-size:larger;
+}
+.category-product-function{
+    padding: 10px;
+}
+
+.category-product-function button{
+    background-color: #00ADB5;
+    height: 50px;
+    width: 100%;
+    color: #fff;
+    outline: none;
+    border-style: none;
+    border: 1px solid cyan;
+    border-radius: 50px;
+}
+
+@media(max-width:768px){
+    .category-product-item img{
+        height: 200px;
+    }
+}
+
+
+
+

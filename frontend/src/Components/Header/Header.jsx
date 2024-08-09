@@ -5,14 +5,14 @@ const Header = () => {
     const [Locate, setLocate] = useState(0)
     const bannerHandler = (val) => {
         let length = sale_banners.length - 1
-        
-        setLocate((prev)=>{
+
+        setLocate((prev) => {
             if (prev + val > length) {
                 return 0
-            } else if(prev + val <0) {
+            } else if (prev + val < 0) {
                 return length
-            }else{
-            return prev + val
+            } else {
+                return prev + val
             }
         })
     }
@@ -27,33 +27,33 @@ const Header = () => {
     }, [])
 
     return (
-        <div className='trending'>
-            <div className="trending-banner-container">
-                <div className="trending-banner">
+        <div className='trending' id='trending'>
+            <div className="trending-banner-container container">
+                <div className="trending-banner row">
                     {sale_banners.map((item, index) => {
                         return (
-                             index === Locate ?
-                                    <div key={index}  className="banner">
-                                        <img className='sale' src={item.sale_image} alt="" />
-                                        <div className="buttons">
-                                            <button onClick={()=>{bannerHandler(-1)}} id="prev">{'<'}</button>
-                                            <button onClick={() => { bannerHandler(1) }} id="next">{'>'}</button>
-                                        </div>
-                                    </div>
+                            index === Locate ?
+                                <div key={index} className="banner">
+                                    <img className='sale img-fluid' src={item.sale_image} alt="" />
+                                </div>
                                 : ''
-                    )
+                        )
                     })}
+                    <div className="buttons">
+                        <button onClick={() => { bannerHandler(-1) }} id="prev">{'<'}</button>
+                        <button onClick={() => { bannerHandler(1) }} id="next">{'>'}</button>
+                    </div>
+                    <ul className="dots text-white">
+                        {
+                            sale_banners.map((item,index) => {
+                                return (
+                                    index == Locate ? <li key={index} className='active'></li> : <li key={index}></li>
+                                )
+                            })
+                        }
+                    </ul>
                 </div>
 
-                <ul className="dots">
-                    {
-                        sale_banners.map((item,index)=>{
-                            return(
-                                index==Locate ? <li className='active'></li> : <li></li>
-                            )
-                        })
-                    }
-                </ul>
             </div>
         </div>
     )

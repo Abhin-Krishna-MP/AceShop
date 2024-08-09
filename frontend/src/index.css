@@ -10,6 +10,7 @@
 body{
   background-color: #222831;
   min-height: 100dvh;
+  scroll-behavior: smooth;
 }
 a{
   text-decoration: none;

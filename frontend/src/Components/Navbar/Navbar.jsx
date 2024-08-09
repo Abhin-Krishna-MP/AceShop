@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Navbar.css'
+import { useNavigate } from 'react-router-dom'
+import { storeContext } from '../../Context/StoreContext'
+
 
 const Navbar = () => {
+    const navigate = useNavigate()
+    const {getTotalAmount} = useContext(storeContext)
     return (
-        <div className='navbar'>
+        <div className='navbar-container'>
             <nav style={{backgroundColor:"#393E46"}} className="navbar navbar-dark fixed-top">
                 <div className="container-fluid">
-                    <a className="navbar-logo" href="#">Ace Shop</a>
+                    <a onClick={()=>{navigate('/')}} className="navbar-logo">Ace Shop</a>
+                    <i onClick={()=>{navigate('/cart')}} className={getTotalAmount()>0 ?"navbar-logo cart-icon ms-auto me-3 bi bi-bag-check": "navbar-logo cart-icon ms-auto me-3 bi bi-bag"}></i>
                     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -18,16 +24,22 @@ const Navbar = () => {
                         <div className="offcanvas-body">
                             <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
                                 <li className="nav-item">
-                                    <a className="nav-link active navbar-text" aria-current="page" href="#">Home</a>
+                                    <a onClick={()=>{
+                                        navigate('/')
+                                    }} className="nav-link active navbar-text" href='#trending' aria-current="page">Home</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link active navbar-text" aria-current="page" href="#">trending</a>
+                                    <a onClick={()=>{
+                                        navigate('/')
+                                    }} className="nav-link active navbar-text" href='#trending' aria-current="page">trending</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link active navbar-text" aria-current="page" href="#">category</a>
+                                    <a onClick={()=>{
+                                        navigate('/')
+                                    }}  className="nav-link active navbar-text" href='#category' aria-current="page">category</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link active navbar-text" aria-current="page" href="#">products</a>
+                                    <a onClick={()=>{navigate('/product',{state:"All"})}} className="nav-link active navbar-text" aria-current="page">products</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link active navbar-text" aria-current="page" href="#">connnect us</a>
