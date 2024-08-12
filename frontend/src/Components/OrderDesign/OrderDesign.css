@@ -1,0 +1,85 @@
+.order-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.order-top{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.order-top input{
+    height: 40px;
+    outline: none;
+    border: 2px solid cyan;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: inherit;
+    color: #fff;
+}
+
+.order-top input:focus{
+    transform: scale(1.04);
+}
+
+.same-field{
+    display: flex;
+    gap: 5px;
+}
+
+.same-field input{
+    height: 40px;
+    outline: none;
+    border: 2px solid cyan;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: inherit;
+    color: #fff;
+}
+
+.same-field input:focus{
+    transform: scale(1.04);
+}
+
+.order-function{
+    display: flex;
+    gap: 10px;
+}
+.order-function button{
+    border: none;
+    height: 40px;
+    align-self: center;
+    margin-left: 100px;
+    color: #fff;
+    background-color: #00ADB5;
+    padding: 10px;
+    border-radius: 8 px;
+}
+
+.order-total{
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media(max-width:768px){
+    
+    .same-field{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-function{
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+    }
+    .order-function button{
+        margin-left: 0;
+    }
+}

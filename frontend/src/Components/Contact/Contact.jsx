@@ -2,7 +2,7 @@ import React from 'react'
 import './Contact.css'
 const Contact = () => {
   return (
-    <div className="contact">
+    <div className="contact" id='Contact'>
       <div className="contact-contents text-white row">
         <div className="brand">
           <h1>Ace Shop</h1>
@@ -28,6 +28,10 @@ const Contact = () => {
             <a>Delivery</a>
             <a>Privacy Policy</a>
         </div>
+      </div>
+      <hr className='text-white'/>
+      <div className="copyright text-white text-center">
+        <p className='footer-copyright'>Copyright 2024 © AceShop.com - All Right Reserved.</p>
       </div>
     </div>
   )

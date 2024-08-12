@@ -1,51 +1,94 @@
-.cart-contents{
+.cart-items{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.cart-items td img{
-    height: 50px;
-    width: 50px;
+.cart-item-card{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #393E46;
+    border: 1px solid #00ADB5;
 }
-.cart-quantity{
+
+.cart-item{
     display: flex;
     justify-content: space-around;
+    gap: 30px;
 }
-.cart-quantity i:hover{
+
+.cart-item img{
+    padding: 10px;
+    height: 100px;
+    width: 100px;
+}
+
+.cart-item-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-item-function{
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    align-items: center;
+    background-color: #393E46;
+}
+
+.cart-item-quantity{
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.cart-item-quantity i:hover{
     cursor: pointer;
 }
 
 .cart-item-remove{
+    background-color: #903749;
+    display: flex;
+    align-items: center;
+    gap: 30px;
     cursor: pointer;
+    border: 1px solid #E84545;
+    border-radius: 50px;
+    padding: 10px;
 }
 
-.cart-table{
-    border-collapse: collapse;
-    width: 100%;
+.cart-item-remove i{
+    font-style: normal;
+
 }
 
-.cart-table td{
-    padding: 8px;
+.cart-bottom{
+    margin-top: 250px;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    align-items: center;
+    font-size: larger;
+}
+.cart-bottom span{
+    font-size: large;
+    font-weight: 600 ;
+    font-size: x-large;
+}
+.cart-bottom button{
+    width: 300px;
+    height: 50px;
+    background-color: #00ADB5;
+    color: #fff;
 }
 
-.cart-table tr:hover {
-    background-color: #544b4b;
-}
-
-.cart-table th{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: cyan;
-    color: white;
-}
-
-@media(max-width:768px){
-    .cart-table thead{
-        display: none;
-    }
-    .cart-quantity{
+@media(max-width:760px){
+    .cart-bottom{
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
     }
 }

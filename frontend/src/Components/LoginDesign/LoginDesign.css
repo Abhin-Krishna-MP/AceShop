@@ -1,0 +1,54 @@
+.login{
+    margin-top: 50px;
+}
+
+.login-container{
+    animation: fadeIn 1s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.login-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-inputs input{
+    height: 40px;
+    outline: none;
+    border: 2px solid cyan;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: inherit;
+    color: #fff;
+}
+
+.login-inputs input:focus{
+    transform: scale(1.04);
+}
+
+.login-condition{
+    display: flex;
+    gap: 20px;
+    align-items: start;
+    margin-top: -15px
+}
+
+.login-condition input{
+    margin-top: 5px;
+}
+
+.form-submit{
+    background-color: #00ADB5;
+    height: 50px;
+    width: 400px;
+    align-self: center;
+    color: #fff;
+}
+
+.form-bottom span{
+    color: #00ADB5;
+    cursor: pointer;
+}

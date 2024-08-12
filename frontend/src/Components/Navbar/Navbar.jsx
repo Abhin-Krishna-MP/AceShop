@@ -13,6 +13,7 @@ const Navbar = () => {
                 <div className="container-fluid">
                     <a onClick={()=>{navigate('/')}} className="navbar-logo">Ace Shop</a>
                     <i onClick={()=>{navigate('/cart')}} className={getTotalAmount()>0 ?"navbar-logo cart-icon ms-auto me-3 bi bi-bag-check": "navbar-logo cart-icon ms-auto me-3 bi bi-bag"}></i>
+                    <a onClick={()=>{navigate('/signup')}} className='btn text-white navbar-signup me-3'>sign-up</a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -42,7 +43,7 @@ const Navbar = () => {
                                     <a onClick={()=>{navigate('/product',{state:"All"})}} className="nav-link active navbar-text" aria-current="page">products</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link active navbar-text" aria-current="page" href="#">connnect us</a>
+                                    <a className="nav-link active navbar-text" aria-current="page" href="#Contact">connnect us</a>
                                 </li>
                             </ul>
                         </div>
