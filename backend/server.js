@@ -16,8 +16,8 @@ app.use(cors())
 connectDB()
 
 //Api end-points
-
 app.use('/api/product',productRouter)
+app.use('/images',express.static('uploads'))
 
 app.get("/",(req,res)=>{
     res.send("Api working")

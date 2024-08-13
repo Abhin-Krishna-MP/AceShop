@@ -1,0 +1,10 @@
+
+
+.list-image{
+    height: 50px;
+    width: 50px;
+}
+
+.list-remove{
+    cursor: pointer;
+}
