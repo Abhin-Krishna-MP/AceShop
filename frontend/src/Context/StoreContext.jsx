@@ -1,10 +1,12 @@
 import { createContext, useState } from "react";
 import {product_list} from '../assets/asset'
+import { useEffect } from "react";
 
 export const storeContext = createContext(null)
 
 function StoreContextProvider({children}){
     const [CartItems, setCartItems] = useState({})
+    const [Token, setToken] = useState('')
     const quantityInc = (id) =>{
         setCartItems({...CartItems,[id]:CartItems[id]+1})
     }
@@ -41,8 +43,18 @@ function StoreContextProvider({children}){
         quantityInc,
         quantityDec,
         removeCartItem,
-        getTotalAmount
+        getTotalAmount,
+        setToken,
+        Token
     }
+
+    useEffect(() => {
+      if(localStorage.getItem('token')){
+        setToken(localStorage.getItem('token'))
+      }
+    }, [Token])
+    
+
     return(
     <storeContext.Provider value={contextValue}>
         {children}

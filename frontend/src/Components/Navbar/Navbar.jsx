@@ -6,14 +6,29 @@ import { storeContext } from '../../Context/StoreContext'
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const {getTotalAmount} = useContext(storeContext)
+    const {getTotalAmount,Token,setToken} = useContext(storeContext)
+
+    const logOut  = ()=>{
+        localStorage.removeItem("token")
+        setToken('')
+    }
+
     return (
         <div className='navbar-container'>
             <nav style={{backgroundColor:"#393E46"}} className="navbar navbar-dark fixed-top">
                 <div className="container-fluid">
                     <a onClick={()=>{navigate('/')}} className="navbar-logo">Ace Shop</a>
                     <i onClick={()=>{navigate('/cart')}} className={getTotalAmount()>0 ?"navbar-logo cart-icon ms-auto me-3 bi bi-bag-check": "navbar-logo cart-icon ms-auto me-3 bi bi-bag"}></i>
-                    <a onClick={()=>{navigate('/signup')}} className='btn text-white navbar-signup me-3'>sign-up</a>
+                    {Token ?
+                    <div className="profile-icon">
+                        <h1 className='text-white text-center mt-2 me-3'><i className="bi bi-person-circle dp"></i></h1>
+                        <ul className="profile text-white text-center">
+                            <li className="profile-item"><p>MyOrder</p></li>
+                            <hr />
+                            <li className="profile-item" onClick={logOut}><p>LogOut</p></li>
+                        </ul>
+                    </div>
+                      :  <a onClick={()=>{navigate('/signup')}} className='btn text-white navbar-signup me-3'>sign-up</a>}
                     <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>

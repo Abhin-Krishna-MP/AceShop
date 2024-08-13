@@ -39,3 +39,32 @@
     transform: scale(1.1);
     transition: .5s ease;
 }
+
+.profile-icon{
+    position: relative;
+}
+
+.profile{
+    position: absolute;
+    display: none;
+    right: 0;
+    z-index: 1;
+}
+
+.profile-icon:hover .profile{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background-color: #333;
+    padding: 12px 25px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    list-style: none;
+    outline: 2px solid #00ADB5;
+}
+
+.profile-item:hover{
+    transition: 1s ease;
+    color: #2b93b0;
+    cursor: pointer;
+}
