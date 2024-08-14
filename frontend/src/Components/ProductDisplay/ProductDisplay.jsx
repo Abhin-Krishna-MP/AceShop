@@ -1,28 +1,27 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './ProductDisplay.css'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { storeContext } from '../../Context/StoreContext'
 
 const ProductDisplay = () => {
-    const { state } = useLocation()
+    
+    const [state, setstate] = useState("All")
     const navigate = useNavigate()
-    const {product_list,CartItems,setCartItems} = useContext(storeContext)
-    const cartHandler = (id)=>{
-        if(CartItems[id]===1){
-            navigate('/cart')
-        }
-        setCartItems({...CartItems,[id]:1})
-    }
+    const {product_list,CartItems,setCartItems,url,cartHandler,Category} = useContext(storeContext)
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
+
     return (
         <div className='product container'>
             <div className="product-container row">
 
                 {
                     product_list.map((item, index) => {
-                        if (item.category == state) {
+                        if (item.category == Category) {
                             return (
                                 <div key={index} className="product-item col-lg-4 col-md-12 ">
-                                    <img className='img-fluid' src={item.image} alt="" />
+                                    <img className='img-fluid' src={`${url}/images/${item.image}`} alt="" />
                                     <div className="product-content text-start">
                                         <h5>Rs {item.price}</h5>
                                         <h4 className='text-white'>{item.name}</h4>
@@ -34,10 +33,10 @@ const ProductDisplay = () => {
                                 </div>
 
                             )
-                        }else if(state==='All'){
+                        }else if(Category==='All'){
                             return (
                                 <div key={index} className="product-item col-lg-4 col-md-12">
-                                    <img className='img-fluid' src={item.image} alt="" />
+                                    <img className='img-fluid' src={`${url}/images/${item.image}`} alt="" />
                                     <div className="product-content text-start">
                                         <h5>Rs {item.price}</h5>
                                         <h4 className='text-white'>{item.name}</h4>

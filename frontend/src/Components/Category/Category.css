@@ -119,6 +119,10 @@
     border-radius: 50px;
 }
 
+.category-product-function button:hover{
+    background-color: cyan;
+}
+
 @media(max-width:768px){
     .category-product-item img{
         height: 200px;

@@ -8,18 +8,7 @@ const Category = () => {
     const navigate = useNavigate()
     const [Type, setType] = useState('All')
     const [Show, setShow] = useState({})
-    const {product_list,CartItems,setCartItems} = useContext(storeContext)
-
-    const cartHandler = (id)=>{
-        if(CartItems[id]===1){
-            navigate('/cart')
-        }
-        setCartItems({...CartItems,[id]:1})
-    }
-    useEffect(() => {
-        console.log(CartItems)
-
-    }, [CartItems])
+    const {product_list,CartItems,setCartItems,url,cartHandler,Category,setCategory} = useContext(storeContext)
 
     return (
         <div className='category text-center' id='category'>
@@ -28,8 +17,8 @@ const Category = () => {
                 {
                     category_list.map((item, index) => {
                         return (
-                            <div onClick={() => { Type === item.category_name ? (setType("All"), setShow({})) : (setType(item.category_name), setShow({})) }} key={index} className="category-item">
-                                <img className={Type === item.category_name ? 'active' : ''} src={item.category_image} alt="" />
+                            <div onClick={() => { Category === item.category_name ? (setCategory("All"), setShow({})) : (setCategory(item.category_name), setShow({})) }} key={index} className="category-item">
+                                <img className={Category === item.category_name ? 'active' : ''} src={item.category_image} alt="" />
                                 <p className='thumbnail-name text-white'>{item.category_name}</p>
                             </div>
                         )
@@ -39,11 +28,11 @@ const Category = () => {
             <div className="catrgory-product-container container">
                 {
                     product_list
-                        .filter(item => item.category === Type || Type === 'All')
+                        .filter(item => item.category === Category || Category === 'All')
                         .slice(0, 3)
                         .map((item, index) => (
                             <div key={index} className="category-product-item col-lg-4 col-12">
-                                <img className='img-fluid' src={item.image} alt={item.name} />
+                                <img className='img-fluid' src={`${url}/images/${item.image}`} alt={item.name} />
                                 <div className="category-product-content text-start">
                                     <h5 className='ms-3'>Rs {item.price}</h5>
                                     <h4 className='text-white text-center'>{item.name}</h4>
@@ -51,13 +40,13 @@ const Category = () => {
                                     <a onClick={() => { Show[index] === false || !Show[index] ? setShow({ ...Show, [index]: true }) : setShow({ ...Show, [index]: false }) }} className='ms-auto m-2'>{Show[index] === true ? "...less" : "...more"}</a>
                                 </div>
                                 <div className="category-product-function text-center">
-                                    <button onClick={()=>cartHandler(item._id)}>{!CartItems[item._id] ?"Add to Cart":"Go to Cart"}</button>
+                                <button onClick={()=>cartHandler(item._id)} className='btn btn-lg'>{!CartItems[item._id] ?"Add to Cart":"Go to Cart"}</button>
                                 </div>
                             </div>
                         ))
                 }
             </div>
-            <a onClick={()=>{navigate('/product',{state:Type})}} className='btn btn-lsm btn-primary'>More Products</a>
+            <a onClick={()=>{navigate('/product')}} className='btn btn-lsm btn-primary'>More Products</a>
         </div>
     )
 }

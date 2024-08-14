@@ -3,8 +3,12 @@ import { useNavigate } from 'react-router-dom'
 import './CartDesign.css'
 import { storeContext } from '../../Context/StoreContext'
 const CartDesign = () => {
-    const { product_list, CartItems, quantityInc, quantityDec, removeCartItem, getTotalAmount } = useContext(storeContext)
+    const { product_list, CartItems,quantityInc, quantityDec, removeCartItem, getTotalAmount,url} = useContext(storeContext)
     const navigate = useNavigate()
+    
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
     return (
         <div className="cart">
@@ -15,7 +19,7 @@ const CartDesign = () => {
                             return (
                                 <div key={index} className="cart-item-card">
                                     <div className="cart-item text-white">
-                                        <img src={item.image} alt="" />
+                                        <img src={`${url}/images/${item.image}`} alt="" />
                                         <div className="cart-item-content">
                                             <p>{item.name}</p>
                                             <p>₹{item.price * CartItems[item._id]}</p>

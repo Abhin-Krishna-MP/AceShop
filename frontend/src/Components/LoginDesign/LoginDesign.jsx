@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom'
 
 const LoginDesign = () => {
     const url = 'http://localhost:4000'
-    const {Token,setToken} = useContext(storeContext)
+    const {Token,setToken,cartData} = useContext(storeContext)
     const [LoginStatus, setLoginStatus] = useState("Sign-Up")
     const navigate = useNavigate()
     const [Data, setData] = useState({
@@ -35,6 +35,7 @@ const LoginDesign = () => {
         if(response.data.success){
             setToken(response.data.token)
             localStorage.setItem("token",response.data.token)
+            await cartData(response.data.token)
             navigate('/')
         }else{
             alert(response.data.message)

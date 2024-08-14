@@ -6,11 +6,12 @@ import { storeContext } from '../../Context/StoreContext'
 
 const Navbar = () => {
     const navigate = useNavigate()
-    const {getTotalAmount,Token,setToken} = useContext(storeContext)
+    const {getTotalAmount,Token,setToken,setCartItems,setCategory} = useContext(storeContext)
 
     const logOut  = ()=>{
         localStorage.removeItem("token")
         setToken('')
+        setCartItems({})
     }
 
     return (
@@ -55,7 +56,7 @@ const Navbar = () => {
                                     }}  className="nav-link active navbar-text" href='#category' aria-current="page">category</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a onClick={()=>{navigate('/product',{state:"All"})}} className="nav-link active navbar-text" aria-current="page">products</a>
+                                    <a onClick={()=>{(setCategory("All"),navigate('/product'))}} className="nav-link active navbar-text" aria-current="page">products</a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link active navbar-text" aria-current="page" href="#Contact">connnect us</a>
