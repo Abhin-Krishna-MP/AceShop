@@ -6,10 +6,8 @@ import { storeContext } from '../../Context/StoreContext.jsx'
 
 const Category = () => {
     const navigate = useNavigate()
-    const [Type, setType] = useState('All')
     const [Show, setShow] = useState({})
-    const {product_list,CartItems,setCartItems,url,cartHandler,Category,setCategory} = useContext(storeContext)
-
+    const {product_list,CartItems,cartData,setCartItems,url,cartHandler,Category,setCategory} = useContext(storeContext)
     return (
         <div className='category text-center' id='category'>
             <h4 className='text-white mt-5'>Category</h4>
@@ -26,7 +24,7 @@ const Category = () => {
                 }
             </div>
             <div className="catrgory-product-container container">
-                {
+                { product_list ?
                     product_list
                         .filter(item => item.category === Category || Category === 'All')
                         .slice(0, 3)
@@ -40,10 +38,10 @@ const Category = () => {
                                     <a onClick={() => { Show[index] === false || !Show[index] ? setShow({ ...Show, [index]: true }) : setShow({ ...Show, [index]: false }) }} className='ms-auto m-2'>{Show[index] === true ? "...less" : "...more"}</a>
                                 </div>
                                 <div className="category-product-function text-center">
-                                <button onClick={()=>cartHandler(item._id)} className='btn btn-lg'>{!CartItems[item._id] ?"Add to Cart":"Go to Cart"}</button>
+                               <button onClick={()=>{cartHandler(item._id)}} className='btn btn-lg'>{!CartItems[item._id] ?"Add to Cart":"Go to Cart"}</button> 
                                 </div>
                             </div>
-                        ))
+                        )) : ""
                 }
             </div>
             <a onClick={()=>{navigate('/product')}} className='btn btn-lsm btn-primary'>More Products</a>

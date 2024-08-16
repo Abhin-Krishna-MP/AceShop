@@ -1,7 +1,9 @@
 import React from 'react'
+import OrderDesing from '../../Components/OrderDesign/OrderDesing'
+
 
 const Order = () => {
-  return 
+  return <OrderDesing/>
 }
 
 export default Order

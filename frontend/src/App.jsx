@@ -7,6 +7,8 @@ import Cart from './Pages/Cart/Cart'
 import Contact from './Components/Contact/Contact'
 import Login from './Pages/Login/Login'
 import Order from './Pages/Order/Order'
+import Verify from './Pages/verify/Verify'
+import MyOrder from './Pages/MyOrder/MyOrder'
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
           <Route path='/cart' element={<Cart />} />
           <Route path='/signup' element={<Login/>} />
           <Route path='/order' element={<Order/>} />
+          <Route path='/verify' element={<Verify/>}  />
+          <Route path='/myorder' element={<MyOrder/>} />
         </Routes>
       </div>
       <Contact />

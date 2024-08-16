@@ -14,7 +14,7 @@ const Navbar = () => {
                 <ul>
                     <li onClick={()=>{(setactive("Add"),navigate('/add'))}} className={active==="Add" ? "menu-item" : ''}><i className="bi bi-plus-square"></i> Add</li>
                     <li onClick={()=>{(setactive("Products"),navigate('/list'))}} className={active==="Products" ? "menu-item" : ''}><i className="bi bi-box"></i> Products</li>
-                    <li onClick={()=>{setactive("Orders")}} className={active==="Orders" ? "menu-item" : ''}><i className="bi bi-box-seam-fill"></i> Orders</li>
+                    <li onClick={()=>{(setactive("Orders"),navigate('/orders'))}} className={active==="Orders" ? "menu-item" : ''}><i className="bi bi-box-seam-fill"></i> Orders</li>
                 </ul>
             </div>
             <div className="profile m-3">

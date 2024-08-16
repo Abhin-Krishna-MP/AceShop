@@ -10,7 +10,7 @@ function StoreContextProvider({ children }) {
     const [Category, setCategory] = useState("All")
     const [CartItems, setCartItems] = useState({})
     const [product_list, setproduct_list] = useState([])
-    const [Token, setToken] = useState('')
+    const [Token, setToken] = useState(localStorage.getItem('token') || '');
     const url = 'http://localhost:4000'
     const navigate = useNavigate()
     const cartHandler = async (id) => {
@@ -43,8 +43,9 @@ function StoreContextProvider({ children }) {
 
     const cartData = async (token) => {
         const response = await axios.post(url + "/api/cart/get", {}, { headers: { token } })
-        setCartItems(response.data.data)
-        console.log(response.data)
+        if(response.data.data){
+            setCartItems(response.data.data)
+        }
     }   
 
     const fetchData = async () => {
@@ -57,23 +58,20 @@ function StoreContextProvider({ children }) {
 
     useEffect(() => {
         async function loadData() {
-            if (localStorage.getItem('token')) {
-                setToken(localStorage.getItem('token'))
-                await cartData(localStorage.getItem('token'))
+            if (Token) {
+                await cartData(Token);
             }
-            await fetchData()
+            await fetchData();
         }
-        loadData()
-    }, [])
+        loadData();
+    }, []);
 
     const getTotalAmount = () => {
         let totalAmount = 0
         for (const item in CartItems) {
-            console.log(item)
             if (CartItems[item] > 0) {
                 let itemInfo = product_list.find((product) => product._id === item)
                 if(itemInfo){
-
                     totalAmount += itemInfo.price * CartItems[item]
                 }
             }

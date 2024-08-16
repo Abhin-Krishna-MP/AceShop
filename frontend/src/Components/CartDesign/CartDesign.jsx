@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import './CartDesign.css'
 import { storeContext } from '../../Context/StoreContext'
 const CartDesign = () => {
-    const { product_list, CartItems,quantityInc, quantityDec, removeCartItem, getTotalAmount,url} = useContext(storeContext)
+    const { product_list, CartItems,quantityInc, quantityDec,Token,cartData,removeCartItem, getTotalAmount,url} = useContext(storeContext)
     const navigate = useNavigate()
     
     useEffect(() => {

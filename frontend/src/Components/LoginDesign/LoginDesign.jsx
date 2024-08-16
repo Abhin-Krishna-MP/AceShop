@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './LoginDesign.css'
 import axios from 'axios'
 import Login from '../../Pages/Login/Login'
 import { useContext } from 'react'
 import { storeContext } from '../../Context/StoreContext'
 import { useNavigate } from 'react-router-dom'
+
+
 
 const LoginDesign = () => {
     const url = 'http://localhost:4000'
@@ -41,6 +43,12 @@ const LoginDesign = () => {
             alert(response.data.message)
         }
     }
+
+    useEffect(() => {
+    
+        window.scrollTo(0,0)
+      
+      }, [])
 
     return (
         <div className='login'>

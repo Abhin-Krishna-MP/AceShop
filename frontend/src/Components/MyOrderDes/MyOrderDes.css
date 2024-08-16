@@ -1,0 +1,7 @@
+.order-tabe{
+    overflow-x: scroll;
+}
+
+.order-table::-webkit-scrollbar{
+    display: none; 
+}
