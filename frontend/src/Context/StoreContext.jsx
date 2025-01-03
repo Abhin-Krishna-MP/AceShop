@@ -11,7 +11,7 @@ function StoreContextProvider({ children }) {
     const [CartItems, setCartItems] = useState({})
     const [product_list, setproduct_list] = useState([])
     const [Token, setToken] = useState(localStorage.getItem('token') || '');
-    const url = 'http://localhost:4000'
+    const url = "https://aceshop-backend.onrender.com"
     const navigate = useNavigate()
     const cartHandler = async (id) => {
         if (CartItems[id] === 1) {
