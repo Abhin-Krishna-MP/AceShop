@@ -1,7 +1,7 @@
 import jkt from 'jsonwebtoken'
 import userModel from '../models/userModel.js'
-import validator from 'validator'
-import bcrypt from 'bcrypt'
+import validator from 'validator'   
+import bcrypt from 'bcryptjs'
 
 const createToken = (id)=>{
     return jkt.sign({id},process.env.JKY_SECRET)
