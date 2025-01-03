@@ -4,7 +4,7 @@ import axios from 'axios'
 import { toast } from 'react-toastify'
 
 const ListDesign = () => {
-    const url = "http://localhost:4000"
+    const url = "https://aceshop-backend.onrender.com"
     const [Product_list, setProduct_list] = useState([])
     const fetchData = async () => {
         const response = await axios.get(`${url}/api/product/list`)
