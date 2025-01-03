@@ -4,7 +4,7 @@ import axios from 'axios'
 import {toast} from 'react-toastify'
 
 const AddDesign = () => {
-    const url = "http://localhost:4000"
+    const url = "https://aceshop-backend.onrender.com"
     const [Image, setImage] = useState(false)
     const [Data, setData] = useState({
         name: '',
